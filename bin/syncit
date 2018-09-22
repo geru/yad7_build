@@ -1,0 +1,11 @@
+##!/bin/bash
+cd drupal;git pull
+rsync -a --exclude=.git ../drupal7/ yad7
+rsync -a --exclude=.git dist/ yad7
+cd yad7
+for file in ../patch/**/*.patch
+do
+if ! patch -Rsfp1 --dry-run -i "$file"; then
+  patch -Rsfp1 -i "$file"
+fi
+done
