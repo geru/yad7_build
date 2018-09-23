@@ -1,4 +1,6 @@
 ##!/bin/bash
+rsync -a --exclude=.git dist/ yad7
+rsync -a --exclude=.git id/ yad7
 for file in patch/**/*.patch
 do
 if patch -Np0 --dry-run -i "$file"; then
