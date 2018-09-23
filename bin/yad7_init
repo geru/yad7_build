@@ -3,7 +3,6 @@ git clone -b7.x --single-branch /srv/git/drupal.git dist
 git clone -b7.x-1.x https://git.drupal.org/project/pathauto.git dist/sites/all/modules/yad7/pathauto
 git clone -b7.x-2.x https://git.drupal.org/project/module_filter.git dist/sites/all/modules/yad7/module_filter
 git clone -b7.x-3.x https://git.drupal.org/project/admin_menu.git dist/sites/all/modules/yad7/admin_menu
-git clone -b7.x-2.x /srv/git/y.git dist/sites/all/modules/yad7/y
-git clone -b7.x-3.x /srv/git/amount.git dist/sites/all/modules/yad7/amount
 git clone -b7.x-1.x https://git.drupal.org/project/adminimal_admin_menu.git dist/sites/all/modules/yad7/adminimal_admin_menu
 git clone -b7.x-1.x https://git.drupal.org/project/adminimal_theme.git dist/sites/all/themes/adminimal_theme
+git clone /srv/git/yad7.git
