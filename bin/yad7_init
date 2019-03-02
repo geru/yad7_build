@@ -6,3 +6,4 @@ git clone -b7.x-2.x https://git.drupal.org/project/module_filter.git dist/sites/
 git clone -b7.x-3.x https://git.drupal.org/project/admin_menu.git dist/sites/all/modules/yad7/admin_menu
 git clone -b7.x-1.x https://git.drupal.org/project/adminimal_admin_menu.git dist/sites/all/modules/yad7/adminimal_admin_menu
 git clone -b7.x-1.x https://git.drupal.org/project/adminimal_theme.git dist/sites/all/themes/adminimal_theme
+git clone -b7.x-3.x https://git.drupal.org/project/jquery_update.git dist/sites/all/modules/jquery_update
