@@ -1,9 +1,9 @@
 ##!//bin/bash
-rm -rf dist
-git clone -b7.x --single-branch /srv/git/d7/dist.git
-git clone -b7.x-1.x https://git.drupal.org/project/pathauto.git dist/sites/all/modules/yad7/pathauto
-git clone -b7.x-2.x https://git.drupal.org/project/module_filter.git dist/sites/all/modules/yad7/module_filter
-git clone -b7.x-3.x https://git.drupal.org/project/admin_menu.git dist/sites/all/modules/yad7/admin_menu
-git clone -b7.x-1.x https://git.drupal.org/project/adminimal_admin_menu.git dist/sites/all/modules/yad7/adminimal_admin_menu
-git clone -b7.x-1.x https://git.drupal.org/project/adminimal_theme.git dist/sites/all/themes/adminimal_theme
-git clone -b7.x-3.x https://git.drupal.org/project/jquery_update.git dist/sites/all/modules/jquery_update
+rm -rf drupal7
+git clone -b7.x --single-branch /srv/git/d7/drupal7 && cd drupal7 && git checkout $(git tag | grep "7." | sort -V | tail -1)
+# git clone -b7.x-1.x https://git.drupal.org/project/pathauto.git drupal7/sites/all/modules/yad7/pathauto
+# git clone -b7.x-2.x https://git.drupal.org/project/module_filter.git drupal7/sites/all/modules/yad7/module_filter
+# git clone -b7.x-3.x https://git.drupal.org/project/admin_menu.git drupal7/sites/all/modules/yad7/admin_menu
+# git clone -b7.x-1.x https://git.drupal.org/project/adminimal_admin_menu.git drupal7/sites/all/modules/yad7/adminimal_admin_menu
+# git clone -b7.x-1.x https://git.drupal.org/project/adminimal_theme.git drupal7/sites/all/themes/adminimal_theme
+# git clone -b7.x-3.x https://git.drupal.org/project/jquery_update.git drupal7/sites/all/modules/jquery_update

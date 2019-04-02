@@ -1,5 +1,7 @@
-##!/bin/bash
-rsync -a --exclude=.git dist/ yad7
+#!/bin/bash
+shopt -s extglob
+rm -rf yad7/*
+rsync -a --exclude=.git drupal7/ yad7
 rsync -a --exclude=.git id/ yad7
 for file in patch/**/*.patch
 do
