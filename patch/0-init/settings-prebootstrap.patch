@@ -1,0 +1,10 @@
+--- yad7/sites/default/default.settings.php
++++ drupal7/sites/default/default.settings.php
+@@ -659,3 +659,7 @@
+   'node_modules',
+   'bower_components',
+ );
++
++if( file_exists( "prebootstrap.inc" ) ) {
++  include_once "prebootstrap.inc";
++}
