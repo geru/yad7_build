@@ -35,13 +35,15 @@
 .hrk-padding-medium {
     padding: 1rem;
 }
+.hrk-hidden {
+    display: none !important;
+}
 
 
 /* responsive navbar */
 .hrk-bar {
     display: flex;
     flex-flow: row wrap;
-/*    z-index: 900;*/
 }
 .hrk-bar::after {
     clear: none;
@@ -51,7 +53,8 @@
     flex-flow: row wrap;
     align-items: center;
     position: relative;
-    background: rgba(250,250,250,.98)
+    background: rgba(250,250,250,.98);
+    justify-content: space-between;
 }
 .hrk-toggle { /* the input checkbox or radio that a submenu is attached to. navbar toggle also gets hrk-bar-toggle class */
     display: none;
@@ -62,16 +65,16 @@
     flex: 1 100%;
     flex-direction: column;
     background: inherit;
-    /* z-index: 50; */
 }
 .hrk-menu-perm {
+    flex: auto;
     display: flex;
     flex-direction: row;
 }
 .hrk-toggle + label {
     display: inline-block;
     cursor: pointer;
-    width: 1.5rem;
+    width: 1rem;
     align-self: flex-start;
     padding: .5rem;
     text-align: center;
@@ -80,16 +83,14 @@
 }
 .hrk-bar-toggle:checked ~ .hrk-menu-responsive {  /* the responsive menu is labeled with class hrk-menu */
     display: flex;
-    /* background: inherit; */
     z-index: 10;
     border: thin solid;
 }
 .hrk-bar-toggle + label:before { /* make sure the navbar toggle and label are a block */
     display: block !important;
 }
-.hrk-bar-perm, .hrk-bar-toggle + label { /* nonresponsive parts of the menu are just flex */
+.hrk-bar-toggle + label { /* nonresponsive parts of the menu are just flex */
     flex: auto;
-    /*  z-index: 100;  allow it to be forefront even if some special effects are happening */
 }
 .hrk-bar-first {
     order: -1;
@@ -100,7 +101,6 @@
 .hrk-bar-toggle + label { /* give the navbar hamburger some size and margins and make the cursor point into */
     display: inline;
     cursor: pointer;
-    /*font-size: 1.5rem;*/
     padding: .75rem 1rem;
     width: unset;
 }
@@ -109,7 +109,6 @@
 }
 .hrk-navbar > .hrk-menu-responsive {
     position: absolute;
-    /* z-index: 990 !important; */
 }
 .hrk-navbar > .hrk-menu {
     top: 3rem;
@@ -121,7 +120,6 @@
 .hrk-bar-extramenu li {
     list-style-type: none;
 }
-/*.hrk-bar-extramenu > a, .hrk-bar-extramenu > span.hrk-a,*/
 .hrk-navbar > .hrk-bar-item > a, .hrk-navbar > .hrk-bar-item > span.hrk-a { /* all navbar top bar links get look and feel */
     margin-top: -.3rem;
     padding: 1rem;
@@ -130,27 +128,20 @@
 .hrk-menu > .hrk-tree > .hrk-tree-node > a, .hrk-menu > .hrk-tree > .hrk-tree-node > span.hrk-a,
 .hrk-menu .hrk-leaf > *,
 .hrk-bar-item a, .hrk-bar-item span.hrk-a {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*//*this line doesn't play nicely with uikit, causes oscillation*/
     text-decoration: none;
     display: inline-block;
 }
 .hrk-menu > .hrk-leaf > * {
-    padding: 0.5rem;
+    padding: 0.5rem 0;
 }
 /* dropdown menu containers */
-.hrk-menu > .hrk-tree > .hrk-tree-node .hrk-tree-children > .hrk-tree > .hrk-tree-node,
-.hrk-menu > .hrk-tree > .hrk-tree-node .hrk-leaf {
-   /* min-width: 80%; */
+.hrk-menu > .hrk-tree > .hrk-tree-node .hrk-tree-children > .hrk-tree > .hrk-tree-node {
+    width: 100%;
 }
-/* dropdown menu items
-.hrk-menu > .hrk-tree > .hrk-tree-node .hrk-tree-children > .hrk-tree > .hrk-tree-node > *,
-.hrk-menu > .hrk-tree > .hrk-tree-node .hrk-leaf > * {
-    min-width: 80%;
-} */
 .hrk-bar-item > a:hover,
 .hrk-bar-item > span.hrk-a:hover {
     background: rgba(120, 120, 120, .2);
-    /* border-radius: .5rem .5rem .5rem .5rem; */
 }
 .hrk-tree-node .hrk-tree-children a,
 .hrk-tree-node .hrk-tree-children span.hrk-a,
@@ -164,7 +155,12 @@
 }
 .hrk-tree-node .hrk-leaf a,
 .hrk-tree-node .hrk-leaf span.hrk-a {
-    padding: .5rem .7rem;
+    /* margin-left: .3rem; */
+    padding: .5rem 1rem;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
 }
 .hrk-tree-node .hrk-tree > .hrk-tree-node > a,
 .hrk-tree-node .hrk-tree > .hrk-tree-node > span.hrk-a,
@@ -173,6 +169,9 @@
 .hrk-menu > .hrk-tree > .hrk-tree-node > a,
 .hrk-menu > .hrk-tree > .hrk-tree-node > span.hrk-a { /* all navbar lower bar links get look and feel */
     padding: .5rem .5rem .5rem 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
 }
 .hrk-navbar > label:hover,
 .hrk-tree:hover,
@@ -181,18 +180,9 @@
 .hrk-menu .hrk-leaf:hover,
 .hrk-bar > label:hover {
     background: rgba(120,120,120,.2);
-    border-radius: 0.5rem .5rem 0.5rem 0;
 }
 .hrk-navbar > .hrk-menu > .hrk-tree > label:hover {
     background: rgba(220,220,220,1); /* label needs to be opaque to cover close toggle */
-    border-radius: 0.5rem .5rem 0.5rem 0;
-}
-.hrk-tree-node > .hrk-tree-children {
-    margin-left: -1rem;
-}
-.hrk-menu > .hrk-tree > .hrk-tree-node > .hrk-tree-children {
-    margin-left: -2rem;
-    /* padding-left: 1rem; */
 }
 
 /* toggle */
@@ -200,33 +190,29 @@
     display: flex;
     flex-flow: row;
     align-items: stretch;
-/*    z-index: 10;*/
-}
-.hrk-navbar > .hrk-menu > .hrk-tree > .hrk-tree-node > a,
-.hrk-navbar > .hrk-menu > .hrk-tree > .hrk-tree-node > span.hrk-a,
-.hrk-navbar > .hrk-menu > .hrk-tree > label,
-.hrk-navbar > .hrk-menu > .hrk-leaf > * {
-    /*   padding-top: 1rem;
-    border-radius: .5rem; */
 }
 .hrk-navbar > .hrk-menu > .hrk-tree > label {
-    margin-left: -2.5rem;
+    margin-left: -2rem;
     background: rgba(250,250,250,1);
 }
 .hrk-tree-node, .hrk-leaf {
     display: inline-block;
     vertical-align: middle;
     -webkit-backface-visibility: hidden;
+    width: 100%;
     align-self: flex-start;
+    box-sizing: border-box;
+}
+.hrk-menu.hrk-bar-perm > .hrk-child {
+    width: inherit;
 }
 .hrk-bar-extramenu ul,
 .hrk-tree-children > .hrk-leaf {
-    margin-left: 1.85rem;
-/*    min-width: 10rem;*/
+    padding-left: 1rem;
 }
 .hrk-menu > .hrk-leaf {
-    margin-left: 2rem;
-    margin-right: .5rem;
+    padding-left: 2rem;
+    /* margin-right: .5rem; */
 }
 .hrk-bar-extramenu,
 .hrk-tree-children {
@@ -237,14 +223,15 @@
     background: rgba(255,255,255,.98);
     border: .1rem solid #eee;
 }
-.hrk-menu > .hrk-tree > .hrk-tree-node > .hrk-tree-children,
-.hrk-bar-item .hrk-bar-extramenu,
-.hrk-menu-active {
-    border-radius: 0 .5rem .5rem .5rem;
-}
 .hrk-bar-last > .hrk-tree > .hrk-tree-node > .hrk-tree-children {
-    position: fixed;
-    right: 1rem;
+    position: absolute;
+    /* right: 0; */
+    padding-right: .5rem;
+    padding-left: .5rem;
+}
+.hrk-navbar > .hrk-bar-perm.hrk-bar-last > .hrk-tree > .hrk-tree-node > .hrk-tree-children,
+.hrk-bar-last > .hrk-tree > .hrk-tree-node > .hrk-tree-children:last-child {
+    right: 0;
 }
 
 .hrk-bar-extramenu,
@@ -258,11 +245,9 @@
     z-index: 50;
 }
 .hrk-toggle-close-menu + input[type="radio"].hrk-toggle:checked + label {
-    /* display: none; */
     z-index: 50;
 }
 .hrk-toggle-close-menu > input[type="radio"].hrk-toggle + label {
-    /* margin-left: -1.85rem; */
 }
 .hrk-toggle-close-menu {
     align-self: flex-start;
@@ -342,7 +327,7 @@ input[type="radio"].hrk-toggle:checked + label {
     z-index: 50;
 }
 .hrk-toggle + label {
-    font-size: 100%;
+    font-size: 99%; /* if 100% bumps it out by a pixel, don't know why */
     color: rgba(120, 120, 120, .8);
 }
 .hrk-navbar svg, .hrk-menu svg {
@@ -352,9 +337,40 @@ input[type="radio"].hrk-toggle:checked + label {
 .hrk-navbar > label {
     max-width: 15%;
 }
+.hrk-menu-responsive {
+    width: auto;
+}
+.hrk-menu-responsive > *,
+.hrk-tree-node.hrk-level-0 .hrk-tree-children > *,
+.hrk-menu-responsive > .hrk-leaf > * {
+    width: 100%;
+    box-sizing: border-box;
+}
 
 /* media query non-responsive for big screen */
 @media screen and (min-width: 75rem) {
+    .hrk-bar-perm {
+        flex: auto;
+    }
+    .hrk-menu .hrk-tree-children > .hrk-leaf {
+        padding-left: 1.2rem;
+    }
+    .hrk-bar-extramenu ul,
+    .hrk-navbar .hrk-tree-children > .hrk-leaf {
+        padding-left: 1.15rem;
+    }
+    .hrk-menu > .hrk-tree > .hrk-tree-node > .hrk-tree-children {
+        margin-left: -2rem;
+    }
+    .hrk-tree-node .hrk-leaf a,
+    .hrk-tree-node .hrk-leaf span.hrk-a {
+        margin-left: 0;
+        padding: .5rem .8rem;
+    }
+    .hrk-menu > .hrk-leaf {
+        padding: 0 .75rem;
+        margin-left: 0;
+    }
 
     .hrk-bar-extramenu > a,
     .hrk-bar-extramenu > span.hrk-a,
@@ -374,16 +390,12 @@ input[type="radio"].hrk-toggle:checked + label {
     }
     .hrk-navbar > .hrk-menu > .hrk-tree > .hrk-toggle + label,
     .hrk-navbar > .hrk-menu > .hrk-tree > .hrk-toggle-close-menu > label {
-        width: unset;
+        width: 1rem;
     }
     .hrk-navbar > .hrk-menu > .hrk-tree > label {
-        margin-left: -1.85rem;
+        margin-left: -2rem;
     }
     .hrk-toggle-close-menu {
-        /*    position: absolute;
-            right: -1rem;
-        /*    z-index: 10;
-            padding-top: .5rem;*/
         align-self: center;
     }
 
@@ -399,6 +411,9 @@ input[type="radio"].hrk-toggle:checked + label {
         border-radius: 0;
         width: auto;
     }
+    .hrk-bar .hrk-leaf {
+        width: auto;
+    }
     .hrk-navbar > .hrk-menu-responsive {
         position: static;
     }
@@ -406,23 +421,20 @@ input[type="radio"].hrk-toggle:checked + label {
     .hrk-menu > .hrk-tree:hover > .hrk-tree-node > .hrk-tree-children {
         display: flex;
         flex-direction: column;
-        /*position: absolute;*/
     }
     .hrk-bar-toggle + label {
         display: none !important;
     }
     .hrk-tree-children {
         position: absolute;
-        /*width: 16rem;*/
-        /*border-radius: 0 .5rem .5rem .5rem;*/
     }
     .hrk-tree-children .hrk-tree-children {
         position: relative;
         flex: 1 100%;
         top: 0;
     }
-    .hrk-tree-node, .hrk-leaf,
-    .hrk-menu > .hrk-tree > .hrk-tree-node > span.hrk-a { /* top-level inactive item */
+    .hrk-tree-node,
+    .hrk-menu > .hrk-tree > .hrk-tree-node > * { /* top-level inactive item */
         width: auto;
     }
     .hrk-bar-last {
@@ -440,5 +452,12 @@ input[type="radio"].hrk-toggle:checked + label {
     }
     .hrk-menu > *:last-child {
         margin-right: 0;
+    }
+    .hrk-menu-responsive > *{
+        width: auto;
+    }
+    .hrk-menu-responsive > .hrk-leaf > * {
+        width: 100%;
+        box-sizing: border-box;
     }
 }
